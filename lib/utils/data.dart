@@ -4,36 +4,36 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 var profile = "https://avatars.githubusercontent.com/u/86506519?v=4";
 
-List populars = [
-  {
-    "image": "https://www.betoch.et/wp-content/uploads/2024/06/B-G5-Mixed-use-commercial-building-16-835x467.jpg",
-    "name": "Single Villa",
-    "price": "28,000,000 birr",
-    "location": "Bole , Addis Ababa",
-    "is_favorited": true,
-  },
-  {
-    "image": "https://www.betoch.et/wp-content/uploads/2024/02/Residence-House-2.jpg",
-    "name": "Convertible Studio",
-    "price": "25,000,000 birr",
-    "location": "Lideta , Addis Abeba",
-    "is_favorited": false,
-  },
-  {
-    "image": "https://www.betoch.et/wp-content/uploads/2024/07/140-m2-L-shape-House-3.jpg",
-    "name": "Twin Castle",
-    "price": "17,000,000 birr",
-    "location": "Gelan , Oromiya",
-    "is_favorited": false,
-  },
-  {
-    "image": "https://allgebeya.com/wp-content/uploads/classified-listing/2023/10/2-1-657x493.jpg",
-    "name": "Twin Villa",
-    "price": "12,000,000 birr",
-    "location": "Bethel , Addis Abeba",
-    "is_favorited": false,
-  },
-];
+// List populars = [
+//   {
+//     "image": "https://www.betoch.et/wp-content/uploads/2024/06/B-G5-Mixed-use-commercial-building-16-835x467.jpg",
+//     "name": "Single Villa",
+//     "price": "28,000,000 birr",
+//     "location": "Bole , Addis Ababa",
+//     "is_favorited": true,
+//   },
+//   {
+//     "image": "https://www.betoch.et/wp-content/uploads/2024/02/Residence-House-2.jpg",
+//     "name": "Convertible Studio",
+//     "price": "25,000,000 birr",
+//     "location": "Lideta , Addis Abeba",
+//     "is_favorited": false,
+//   },
+//   {
+//     "image": "https://www.betoch.et/wp-content/uploads/2024/07/140-m2-L-shape-House-3.jpg",
+//     "name": "Twin Castle",
+//     "price": "17,000,000 birr",
+//     "location": "Gelan , Oromiya",
+//     "is_favorited": false,
+//   },
+//   {
+//     "image": "https://allgebeya.com/wp-content/uploads/classified-listing/2023/10/2-1-657x493.jpg",
+//     "name": "Twin Villa",
+//     "price": "12,000,000 birr",
+//     "location": "Bethel , Addis Abeba",
+//     "is_favorited": false,
+//   },
+// ];
 
 List recents = [
   {

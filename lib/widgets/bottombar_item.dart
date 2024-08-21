@@ -37,7 +37,7 @@ class BottomBarItem extends StatelessWidget {
               ),
               child: Icon(
                 icon,
-                size: 30,
+                size: 20,
                 color: isActive ? activeColor : color,
               ),
             ),

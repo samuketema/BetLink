@@ -1,3 +1,9 @@
+import 'package:betlink/pages/add_property.dart';
+import 'package:betlink/pages/dashboard.dart';
+import 'package:betlink/pages/home.dart';
+import 'package:betlink/pages/login.dart';
+import 'package:betlink/pages/registration.dart';
+import 'package:betlink/pages/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import '../firebase_options.dart';
@@ -19,7 +25,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: AppColor.primary,
       ),
-      home: const RootApp(),
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        RootApp.id : (context) => RootApp(),
+        HomePage.id : (context) => HomePage(),
+        WelcomeScreen.id : (context) => WelcomeScreen(),
+        RegistrationScreen.id : (context) => RegistrationScreen(),
+       LoginScreen.id : (context) => LoginScreen(),
+       DashboardScreen.id : (context) => DashboardScreen(),
+       AddProperty.id: (context)=> AddProperty()
+      },
     );
   }
 }

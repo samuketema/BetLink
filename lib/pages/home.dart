@@ -7,6 +7,7 @@ import '../widgets/recent_item.dart';
 import '../Firebase/build_populars.dart';
 
 class HomePage extends StatefulWidget {
+  static const String id = 'homepage';
   const HomePage({Key? key}) : super(key: key);
 
   @override
@@ -32,9 +33,12 @@ class _HomePageState extends State<HomePage> {
 
   _buildHeader() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CircleAvatar(child: Image.asset('assets/images/home.jpg')),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            CircleAvatar(child: Image.asset('assets/images/home.jpg')),
         
         Text(
           "BetLink",
@@ -44,9 +48,8 @@ class _HomePageState extends State<HomePage> {
             fontWeight: FontWeight.w600,
           ),
         ),
-        SizedBox(
-        width: 245,
-      ),
+          ],
+        ),
       Icon(FontAwesomeIcons.magnifyingGlass)
       ],
       

@@ -42,7 +42,7 @@ class PropertyItem extends StatelessWidget {
           ),
           Positioned(
             left: 15,
-            top: 160,
+            top: 150,
             child: _buildInfo(),
           ),
         ],

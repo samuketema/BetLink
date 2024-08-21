@@ -1,3 +1,4 @@
+import 'package:betlink/pages/dashboard.dart';
 import 'package:flutter/material.dart';
 import '../pages/add_property.dart';
 import '../pages/explore.dart';
@@ -7,6 +8,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'home.dart';
 
 class RootApp extends StatefulWidget {
+
+  static const String id = 'rootapp';
   const RootApp({Key? key}) : super(key: key);
 
   @override
@@ -15,6 +18,13 @@ class RootApp extends StatefulWidget {
 
 class _RootAppState extends State<RootApp> {
   int _activeTab = 0;
+  final List<String> _barItemDescriptions = [
+  'Home', // Description for the first item (Home)
+  'Brokers', // Description for the second item (Brokers)
+  'Dashboard', // Description for the third item (Dashboard)
+  'Settings', // Description for the fourth item (Settings)
+];
+
   final List _barItems = [
     {
       "icon": Icons.home_outlined,
@@ -27,9 +37,9 @@ class _RootAppState extends State<RootApp> {
       "page": BrokersPage(),
     },
     {
-      "icon": Icons.add_outlined,
-      "active_icon": Icons.add,
-      "page": AddProperty(),
+      "icon": Icons.dashboard,
+      "active_icon": Icons.dashboard_outlined,
+      "page": DashboardScreen(),
     },
     {
       "icon": Icons.settings_outlined,
@@ -60,41 +70,58 @@ class _RootAppState extends State<RootApp> {
   }
 
   Widget _buildBottomBar() {
-    return Container(
-      height: 60,
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 15),
-      decoration: BoxDecoration(
-        color: AppColor.bottomBarColor,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-           
-            blurRadius: 1,
-            spreadRadius: 1,
-            offset: Offset(0, 1),
-          )
-        ],
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: List.generate(
-          _barItems.length,
-          (index) => BottomBarItem(
-            _activeTab == index
-                ? _barItems[index]["active_icon"]
-                : _barItems[index]["icon"],
-            isActive: _activeTab == index,
-            activeColor: AppColor.primary,
-            onTap: () {
-              setState(() {
-                _activeTab = index;
-              });
-            },
-          ),
+  return Container(
+    height: 60,
+    width: double.infinity,
+    margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
+    decoration: BoxDecoration(
+      color: AppColor.bottomBarColor,
+      borderRadius: BorderRadius.circular(20),
+      boxShadow: [
+        BoxShadow(
+          blurRadius: 1,
+          spreadRadius: 1,
+          offset: Offset(0, 1),
         ),
+      ],
+    ),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: List.generate(
+        _barItems.length,
+        (index) {
+          final isActive = _activeTab == index;
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              BottomBarItem(
+                isActive
+                    ? _barItems[index]["active_icon"]
+                    : _barItems[index]["icon"],
+                isActive: isActive,
+                activeColor: AppColor.primary,
+                onTap: () {
+                  setState(() {
+                    _activeTab = index;
+                  });
+                },
+              ),
+               // Add some spacing between icon and description
+              Text(
+                _barItemDescriptions[index],
+                style: TextStyle(
+                  color: isActive ? AppColor.primary : Colors.grey,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold
+                ),
+              ),
+            ],
+          );
+        },
       ),
-    );
-  }
+    ),
+  );
+}
+
 }
