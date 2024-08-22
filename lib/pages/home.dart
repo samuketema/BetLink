@@ -39,21 +39,18 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             CircleAvatar(child: Image.asset('assets/images/home.jpg')),
-        
-        Text(
-          "BetLink",
-          style: TextStyle(
-            color: Colors.black87,
-            fontSize: 17,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
+            Text(
+              "BetLink",
+              style: TextStyle(
+                color: Colors.black87,
+                fontSize: 17,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ],
         ),
-      Icon(FontAwesomeIcons.magnifyingGlass)
+        Icon(FontAwesomeIcons.magnifyingGlass)
       ],
-      
-      
     );
   }
 
@@ -81,7 +78,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 20,
           ),
-         _buildCategories(),
+          _buildCategories(),
           const SizedBox(
             height: 10,
           ),
@@ -126,7 +123,6 @@ class _HomePageState extends State<HomePage> {
       child: Row(children: lists),
     );
   }
-
 
   Widget _buildRecent() {
     List<Widget> lists = List.generate(
