@@ -75,7 +75,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   }
                   return null;
                 },
-                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
+                decoration:
+                    kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
               ),
               SizedBox(height: 8.0),
               TextFormField(
@@ -87,7 +88,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   return null;
                 },
                 obscureText: true, // Hide password
-                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your password'),
+                decoration: kTextFieldDecoration.copyWith(
+                    hintText: 'Enter your password'),
               ),
               SizedBox(height: 24.0),
               RoundedButton(
