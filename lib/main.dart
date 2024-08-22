@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import '../firebase_options.dart';
 import 'pages/root.dart';
 import 'theme/color.dart';
+import 'widgets/image_upload.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
         RegistrationScreen.id : (context) => RegistrationScreen(),
        LoginScreen.id : (context) => LoginScreen(),
        DashboardScreen.id : (context) => DashboardScreen(),
-       AddProperty.id: (context)=> AddProperty()
+       AddProperty.id: (context)=> AddProperty(),
+      UploadImageAndMore.id : (context)=> UploadImageAndMore()
       },
     );
   }

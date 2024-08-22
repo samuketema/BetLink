@@ -1,6 +1,6 @@
 import 'package:betlink/pages/dashboard.dart';
+import 'package:betlink/pages/settings.dart';
 import 'package:flutter/material.dart';
-import '../pages/add_property.dart';
 import '../pages/explore.dart';
 import '../theme/color.dart';
 import '../widgets/bottombar_item.dart';
@@ -44,7 +44,7 @@ class _RootAppState extends State<RootApp> {
     {
       "icon": Icons.settings_outlined,
       "active_icon": Icons.settings_rounded,
-      "page": HomePage(),
+      "page": SettingsScreen(),
     },
   ];
 

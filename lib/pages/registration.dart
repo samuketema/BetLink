@@ -50,7 +50,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
               // ... (other widgets remain unchanged)
-
+              
               TextFormField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -67,6 +67,17 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   hintText: 'Enter your email',
                 ),
               ),
+              TextFormField(
+                controller: _passwordController,
+                validator: (value) {
+                  if (value == null || value.length < 6 || value.isEmpty) {
+                    return 'Please enter your password (at least 6 characters)';
+                  }
+                  return null;
+                },
+                obscureText: true, // Hide password
+                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your password'),
+              ),
 
               // ... (other widgets remain unchanged)
 
@@ -80,6 +91,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         password: _passwordController.text,
                       );
                       if (newUser != null) {
+                        _emailController.clear();
+                        _passwordController.clear();
                         Navigator.pushNamed(context, RootApp.id);
                       }
                     } catch (e) {

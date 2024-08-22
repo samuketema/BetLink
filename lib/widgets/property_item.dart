@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../theme/color.dart';
-
 import 'custom_image.dart';
 import 'icon_box.dart';
 

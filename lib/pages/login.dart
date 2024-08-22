@@ -14,8 +14,28 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>(); // Add a form key
-  String? email;
-  String? password;
+  late TextEditingController _emailController;
+  late TextEditingController _passwordController;
+
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  // Custom email validation using RegExp
+  bool isValidEmail(String email) {
+    final RegExp emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegex.hasMatch(email);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,26 +63,26 @@ class _LoginScreenState extends State<LoginScreen> {
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
-              TextFormField( // Use TextFormField
-                onChanged: (value) {
-                  email = value;
-                },
+              TextFormField(
+                controller: _emailController,
+                keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
+                  }
+                  if (!isValidEmail(value)) {
+                    return 'Invalid email format';
                   }
                   return null;
                 },
                 decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your email'),
               ),
               SizedBox(height: 8.0),
-              TextFormField( // Use TextFormField
-                onChanged: (value) {
-                  password = value;
-                },
+              TextFormField(
+                controller: _passwordController,
                 validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter your password';
+                  if (value == null || value.length < 6 || value.isEmpty) {
+                    return 'Please enter your password (at least 6 characters)';
                   }
                   return null;
                 },
@@ -73,13 +93,15 @@ class _LoginScreenState extends State<LoginScreen> {
               RoundedButton(
                 color: Colors.lightGreen,
                 onPressed: () async {
-                  if (_formKey.currentState!.validate()) { // Validate the form
+                  if (_formKey.currentState!.validate()) {
                     try {
                       final user = await _auth.signInWithEmailAndPassword(
-                        email: email as String,
-                        password: password as String,
+                        email: _emailController.text,
+                        password: _passwordController.text,
                       );
                       if (user != null) {
+                        _emailController.clear();
+                        _passwordController.clear();
                         print('User logged in: ${user.user?.email}');
                         Navigator.pushNamed(context, RootApp.id);
                       }
