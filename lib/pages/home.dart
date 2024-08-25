@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             CircleAvatar(child: Image.asset('assets/images/home.jpg')),
-            Text(
+            const Text(
               "BetLink",
               style: TextStyle(
                 color: Colors.black87,
@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-        Icon(FontAwesomeIcons.magnifyingGlass)
+        const Icon(FontAwesomeIcons.magnifyingGlass)
       ],
     );
   }
@@ -59,11 +59,11 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
+              children: [
                 Text(
                   "Popular Listings",
                   style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
@@ -82,8 +82,8 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 10,
           ),
-          Padding(
-            padding: const EdgeInsets.only(right: 15),
+          const Padding(
+            padding: EdgeInsets.only(right: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
     );
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.only(bottom: 5, left: 15),
+      padding: const EdgeInsets.only(bottom: 5, left: 15),
       child: Row(children: lists),
     );
   }
@@ -134,7 +134,7 @@ class _HomePageState extends State<HomePage> {
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.only(bottom: 5, left: 15),
+      padding: const EdgeInsets.only(bottom: 5, left: 15),
       child: Row(children: lists),
     );
   }
