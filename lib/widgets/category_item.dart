@@ -21,15 +21,15 @@ class CategoryItem extends StatelessWidget {
 
         duration: const Duration(milliseconds: 500),
         curve: Curves.fastOutSlowIn,
-        padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
-        margin: EdgeInsets.only(right: 10),
+        padding: const EdgeInsets.fromLTRB(5, 10, 5, 0),
+        margin: const EdgeInsets.only(right: 10),
         width: 70,
         height: 50,
         decoration: BoxDecoration(
           color: selected ? AppColor.primary : AppColor.cardColor,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
-            BoxShadow(
+            const BoxShadow(
               spreadRadius: .5,
               blurRadius: .5,
               offset: Offset(0, 1), // changes position of shadow
