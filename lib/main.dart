@@ -2,6 +2,7 @@ import 'package:betlink/pages/add_property.dart';
 import 'package:betlink/pages/dashboard.dart';
 import 'package:betlink/pages/home.dart';
 import 'package:betlink/pages/login.dart';
+import 'package:betlink/pages/register_as_agent.dart';
 import 'package:betlink/pages/registration.dart';
 import 'package:betlink/pages/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -35,7 +36,8 @@ class MyApp extends StatelessWidget {
        LoginScreen.id : (context) => LoginScreen(),
        DashboardScreen.id : (context) => DashboardScreen(),
        AddProperty.id: (context)=> AddProperty(),
-      UploadImageAndMore.id : (context)=> UploadImageAndMore()
+      UploadImageAndMore.id : (context)=> UploadImageAndMore(),
+      RegisterAsAgent.id: (context) => RegisterAsAgent()
       },
     );
   }
