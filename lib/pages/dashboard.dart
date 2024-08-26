@@ -1,4 +1,5 @@
 import 'package:betlink/pages/add_property.dart';
+import 'package:betlink/pages/register_as_agent.dart';
 import 'package:flutter/material.dart';
 import '../theme/color.dart';
 import '../widgets/custom_image.dart';
@@ -54,6 +55,13 @@ class DashboardScreen extends StatelessWidget {
               onPressed: () {},
               color: Colors.blue,
               title: 'Pending Properties',
+            ),
+            RoundedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, RegisterAsAgent.id);
+              },
+              color: Colors.orangeAccent,
+              title: 'Register as an agent',
             ),
             
           ],
