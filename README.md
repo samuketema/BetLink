@@ -13,12 +13,14 @@ The **Bet Link** is a Flutter application designed to connect buyers and sellers
 
 ## Screenshots
 
-![Welcome Screen](screenshots/photo1.jpg)
-![Login Page](screenshots/photo2.jpg)
-![Home Page](screenshots/photo3.jpg)
+![Welcome Screen](screenshots/photo.jpg)
+![Login Page](screenshots/photo1.jpg)
+![Home Page](screenshots/photo2.jpg)
+![Brokers Page](screenshots/photo3.jpg)
 ![Dashboard Page](screenshots/photo4.jpg)
 ![Settings page](screenshots/photo5.jpg)
-![Add Property page](screenshots/photo.jpg)
+![Add Property page](screenshots/photo6.jpg)
+![Register Broker page](screenshots/photo7.jpg)
 
 ## Getting Started
 

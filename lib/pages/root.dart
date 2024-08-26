@@ -1,7 +1,7 @@
 import 'package:betlink/pages/dashboard.dart';
 import 'package:betlink/pages/settings.dart';
 import 'package:flutter/material.dart';
-import '../pages/explore.dart';
+import 'brokers_page.dart';
 import '../theme/color.dart';
 import '../widgets/bottombar_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';

@@ -49,7 +49,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              // ... (other widgets remain unchanged)
+             Hero(
+                tag: 'logo',
+                child: Container(
+                  height: 100.0,
+                  child: Image.asset('assets/images/home.jpg'),
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Text(
+                'Log in to BetLink',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
               
               TextFormField(
                 controller: _emailController,

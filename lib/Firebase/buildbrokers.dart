@@ -27,10 +27,12 @@ class BuildBrokers extends StatelessWidget {
           brokers = properties?.map((propertyDoc) {
             final propertyData = propertyDoc.data() as Map<String, dynamic>;
             return {
-              'image': propertyData['image'] as String,
-              'name': propertyData['name'] as String,
               'type': propertyData['type'] as String,
+              'name': propertyData['name'] as String,
+              'image': propertyData['image'] as String,
               'description': propertyData['description'] as String,
+              
+              
               'rate':4
             };
           }).toList() as List<Map<String, Object>>;

@@ -25,37 +25,6 @@ List categories = [
   },
 ];
 
-var brokers = [
-    {
-    "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjV8fHByb2ZpbGV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60", 
-    "name": "John Siphron", 
-    "type": "Broker", 
-    "description": "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
-    "rate": 4, 
-  },
-  {
-    "image":"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2ZpbGV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name" : "Corey Aminoff",
-    "type": "Broker", 
-    "description": "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
-    "rate": 4, 
-  },
-  {
-    "image" : "https://images.unsplash.com/photo-1617069470302-9b5592c80f66?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z2lybHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Siriya Aminoff", 
-    "type": "Broker", 
-    "description": "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
-    "rate": 4, 
-  },
-  {
-    "image" : "https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTB8fHByb2ZpbGV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Rubin Joe", 
-    "type": "Broker", 
-    "description": "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document",
-    "rate": 4, 
-  },
-];
-
 List companies = [
   {
     "image": "https://images.unsplash.com/photo-1549517045-bc93de075e53?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",

@@ -1,5 +1,6 @@
 import 'package:betlink/pages/add_property.dart';
 import 'package:betlink/pages/dashboard.dart';
+import 'package:betlink/pages/brokers_page.dart';
 import 'package:betlink/pages/home.dart';
 import 'package:betlink/pages/login.dart';
 import 'package:betlink/pages/register_as_agent.dart';
@@ -29,14 +30,15 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: WelcomeScreen.id,
       routes: {
-        RootApp.id : (context) => RootApp(),
-        HomePage.id : (context) => HomePage(),
+        BrokersPage.id : (context) => const BrokersPage(),
+        RootApp.id : (context) => const RootApp(),
+        HomePage.id : (context) => const HomePage(),
         WelcomeScreen.id : (context) => WelcomeScreen(),
         RegistrationScreen.id : (context) => RegistrationScreen(),
        LoginScreen.id : (context) => LoginScreen(),
-       DashboardScreen.id : (context) => DashboardScreen(),
+       DashboardScreen.id : (context) => const DashboardScreen(),
        AddProperty.id: (context)=> AddProperty(),
-      UploadImageAndMore.id : (context)=> UploadImageAndMore(),
+      UploadImageAndMore.id : (context)=> const UploadImageAndMore(),
       RegisterAsAgent.id: (context) => RegisterAsAgent()
       },
     );

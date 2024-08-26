@@ -11,60 +11,61 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.green,
-        title: Text('Dashboard',style: TextStyle(color:Colors.white),),
-      ),
-      body: Container(
-        margin: EdgeInsets.only(top: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CustomButton(
-                  assetData: 'assets/images/house.png',
-                  onTap: () {
-                    Navigator.pushNamed(context, AddProperty.id);
-                  },
-                  message: 'Publish new Properties',
-                ),
-                CustomButton(
-                    message: 'Favorite Properties',
-                    onTap: () {},
-                    assetData: 'assets/images/home2.jpg')
-              ],
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            RoundedButton(
-              onPressed: () {},
-              color: Colors.green,
-              title: 'Published Properties',
-            ),
-            RoundedButton(
-              onPressed: () {},
-              color: Colors.blueGrey,
-              title: 'Featured Properties',
-            ),
-            RoundedButton(
-              onPressed: () {},
-              color: Colors.blue,
-              title: 'Pending Properties',
-            ),
-            RoundedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, RegisterAsAgent.id);
-              },
-              color: Colors.orangeAccent,
-              title: 'Register as an agent',
-            ),
-            
-          ],
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Dashboard',style: TextStyle(fontWeight: FontWeight.bold),),
+        ),
+        body: Container(
+          margin: EdgeInsets.only(top: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButton(
+                    assetData: 'assets/images/house.png',
+                    onTap: () {
+                      Navigator.pushNamed(context, AddProperty.id);
+                    },
+                    message: 'Publish new Properties',
+                  ),
+                  CustomButton(
+                      message: 'Favorite Properties',
+                      onTap: () {},
+                      assetData: 'assets/images/home2.jpg')
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              RoundedButton(
+                onPressed: () {},
+                color: Colors.green,
+                title: 'Published Properties',
+              ),
+              RoundedButton(
+                onPressed: () {},
+                color: Colors.blueGrey,
+                title: 'Featured Properties',
+              ),
+              RoundedButton(
+                onPressed: () {},
+                color: Colors.blue,
+                title: 'Pending Properties',
+              ),
+              RoundedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, RegisterAsAgent.id);
+                },
+                color: Colors.orange,
+                title: 'Register Yourself as an agent',
+              ),
+              
+            ],
+          ),
         ),
       ),
     );

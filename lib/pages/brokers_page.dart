@@ -8,6 +8,7 @@ import '../widgets/custom_textbox.dart';
 import '../widgets/icon_box.dart';
 
 class BrokersPage extends StatefulWidget {
+  static const String id = 'brokes_page';
   const BrokersPage({Key? key}) : super(key: key);
 
   @override
@@ -17,17 +18,21 @@ class BrokersPage extends StatefulWidget {
 class _BrokersPageState extends State<BrokersPage> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          backgroundColor: AppColor.appBgColor,
-          pinned: true,
-          snap: true,
-          floating: true,
-          title: _buildHeader(),
+    return MaterialApp(
+      home: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              backgroundColor: AppColor.appBgColor,
+              pinned: true,
+              snap: true,
+              floating: true,
+              title: _buildHeader(),
+            ),
+            SliverToBoxAdapter(child: _buildBody())
+          ],
         ),
-        SliverToBoxAdapter(child: _buildBody())
-      ],
+      ),
     );
   }
 
@@ -45,7 +50,7 @@ class _BrokersPageState extends State<BrokersPage> {
         ),
         IconBox(
           child: Icon(Icons.filter_list_rounded, color: Colors.white),
-          bgColor: AppColor.secondary,
+          bgColor: Colors.green,
           radius: 10,
         )
       ],
@@ -106,20 +111,6 @@ class _BrokersPageState extends State<BrokersPage> {
       scrollDirection: Axis.horizontal,
       padding: EdgeInsets.only(bottom: 5, left: 15),
       child: Row(children: lists),
-    );
-  }
-
-  _buildBrokers() {
-    List<Widget> lists = List.generate(
-      brokers.length,
-      (index) => BrokerItem(
-        data: brokers[index],
-      ),
-    );
-
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 15),
-      child: Column(children: lists),
     );
   }
 }

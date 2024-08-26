@@ -1,3 +1,5 @@
+import 'package:betlink/pages/home.dart';
+import 'package:betlink/pages/root.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart'; // Import the image_picker package
@@ -12,7 +14,7 @@ class AddProperty extends StatefulWidget {
 }
 
 class _AddPropertyState extends State<AddProperty> {
-   String? imageUrl;
+  String? imageUrl;
 
   final _firestore = FirebaseFirestore.instance;
 
@@ -22,36 +24,41 @@ class _AddPropertyState extends State<AddProperty> {
 
   final TextEditingController locationController = TextEditingController();
 
-  bool _uploadingImage = false; 
- // Add this variable
-void _addProperty() async {
-  final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
-  if (pickedFile != null) {
-    final imageFile = File(pickedFile.path);
-    final storageRef = FirebaseStorage.instance.ref().child(
-        'property_images/${DateTime.now().millisecondsSinceEpoch}.jpg');
-    final uploadTask = storageRef.putFile(imageFile);
+  bool _uploadingImage = false;
+  // Add this variable
+  void _addProperty() async {
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+      final imageFile = File(pickedFile.path);
+      final storageRef = FirebaseStorage.instance.ref().child(
+          'property_images/${DateTime.now().millisecondsSinceEpoch}.jpg');
+      final uploadTask = storageRef.putFile(imageFile);
 
-    setState(() {
-      _uploadingImage = true; // Show progress indicator
-    });
+      setState(() {
+        _uploadingImage = true; // Show progress indicator
+      });
 
-    imageUrl = await uploadTask.then((taskSnapshot) => taskSnapshot.ref.getDownloadURL());
+      imageUrl = await uploadTask
+          .then((taskSnapshot) => taskSnapshot.ref.getDownloadURL());
 
-    setState(() {
-      _uploadingImage = false; // Hide progress indicator
-    });
+      setState(() {
+        _uploadingImage = false; // Hide progress indicator
+      });
+    }
   }
-}
 
   void _add() async {
     await _firestore.collection('recents').add({
-        'image': imageUrl,
-        'name': nameController.text,
-        'price': priceController.text,
-        'location': locationController.text,
-        'is_favorited': false,
-      });
+      'image': imageUrl,
+      'name': nameController.text,
+      'price': priceController.text,
+      'location': locationController.text,
+      'is_favorited': false,
+    });
+
+    Navigator.of(context).pop();
+    Navigator.of(context).pushNamed(RootApp.id);
   }
 
   @override
@@ -59,7 +66,10 @@ void _addProperty() async {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Add Property' , style: TextStyle(color: Colors.white),),
+          title: Text(
+            'Add Property',
+            style: TextStyle(color: Colors.white),
+          ),
           backgroundColor: Colors.green,
         ),
         backgroundColor: Colors.grey.shade200,
@@ -84,12 +94,12 @@ void _addProperty() async {
                         ),
                         // Replace the TextField with an image picker button
                         if (_uploadingImage)
-            CircularProgressIndicator() // Show progress indicator
-          else
-            IconButton(
-              icon: Icon(Icons.photo_camera),
-              onPressed: _addProperty,
-            ),
+                          CircularProgressIndicator() // Show progress indicator
+                        else
+                          IconButton(
+                            icon: Icon(Icons.photo_camera),
+                            onPressed: _addProperty,
+                          ),
                         _buildTextField(nameController, 'Property Name'),
                         _buildTextField(priceController, 'Price (\$)'),
                         _buildTextField(locationController, 'Location'),
@@ -98,9 +108,7 @@ void _addProperty() async {
                   ),
                   SizedBox(height: 30),
                   ElevatedButton(
-                    onPressed:
-                    _add,
-                     
+                    onPressed: _add,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
                       shape: RoundedRectangleBorder(

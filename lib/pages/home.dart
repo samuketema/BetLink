@@ -16,17 +16,21 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: <Widget>[
-        SliverAppBar(
-          backgroundColor: Colors.grey.shade200,
-          pinned: true,
-          snap: true,
-          floating: true,
-          title: _buildHeader(),
+    return MaterialApp(
+      home: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              backgroundColor: Colors.grey.shade200,
+              pinned: true,
+              snap: true,
+              floating: true,
+              title: _buildHeader(),
+            ),
+            SliverToBoxAdapter(child: _buildBody())
+          ],
         ),
-        SliverToBoxAdapter(child: _buildBody())
-      ],
+      ),
     );
   }
 
