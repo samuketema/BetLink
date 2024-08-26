@@ -1,4 +1,3 @@
-import 'package:betlink/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart'; // Import the image_picker package
@@ -60,7 +59,7 @@ void _addProperty() async {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Add Property'),
+          title: Text('Add Property' , style: TextStyle(color: Colors.white),),
           backgroundColor: Colors.green,
         ),
         backgroundColor: Colors.grey.shade200,
@@ -110,7 +109,7 @@ void _addProperty() async {
                     ),
                     child: Text(
                       'Add Property',
-                      style: TextStyle(fontSize: 18),
+                      style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
                   )
                 ])));

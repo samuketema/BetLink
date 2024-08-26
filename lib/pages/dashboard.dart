@@ -15,7 +15,7 @@ class DashboardScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.green,
-        title: Text('Dashboard'),
+        title: Text('Dashboard',style: TextStyle(color:Colors.white),),
       ),
       body: Container(
         margin: EdgeInsets.only(top: 30),

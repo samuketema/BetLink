@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Firebase/build_recents.dart';
 import '../utils/data.dart';
 import '../widgets/category_item.dart';
-import '../widgets/recent_item.dart';
 import '../Firebase/build_populars.dart';
 
 class HomePage extends StatefulWidget {
@@ -117,21 +116,6 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      padding: const EdgeInsets.only(bottom: 5, left: 15),
-      child: Row(children: lists),
-    );
-  }
-
-  Widget _buildRecent() {
-    List<Widget> lists = List.generate(
-      recents.length,
-      (index) => RecentItem(
-        data: recents[index],
-      ),
-    );
-
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       padding: const EdgeInsets.only(bottom: 5, left: 15),
