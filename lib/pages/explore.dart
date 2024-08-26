@@ -1,3 +1,4 @@
+import 'package:betlink/Firebase/buildbrokers.dart';
 import 'package:flutter/material.dart';
 import '../theme/color.dart';
 import '../utils/data.dart';
@@ -76,7 +77,7 @@ class _BrokersPageState extends State<BrokersPage> {
           const SizedBox(
             height: 20,
           ),
-          _buildBrokers(),
+          BuildBrokers(),
           const SizedBox(
             height: 100,
           ),
