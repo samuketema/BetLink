@@ -1,5 +1,3 @@
-import 'package:betlink/pages/brokers_page.dart';
-import 'package:betlink/pages/home.dart';
 import 'package:betlink/pages/root.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -87,10 +85,13 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                       child: Column(
                         children: [
                           Text(
-                            'Add Your New Property',
+                            'Register as an Agent',
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
+                          ),
+                          SizedBox(
+                            height: 10,
                           ),
                           // Replace the TextField with an image picker button
                           if (_uploadingImage)
@@ -106,6 +107,10 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                                         'assets/images/green-person.png'), // Default icon
                                 radius: 50,
                               ),
+                            ),
+                            Text(' Please Press the above icon to insert your profile picture'),
+                            SizedBox(
+                              height: 20,
                             ),
                           _buildTextField(nameController, 'Full Name', 1),
                           _buildTextField(typeController, 'Type', 1),
