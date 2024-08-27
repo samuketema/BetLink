@@ -63,7 +63,7 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Register as Agent',
             style: TextStyle(color: Colors.white),
           ),
@@ -77,25 +77,25 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: const EdgeInsets.only(top: 20),
                       decoration: BoxDecoration(
                         border: Border.all(),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Column(
                         children: [
-                          Text(
+                          const Text(
                             'Register as an Agent',
                             style: TextStyle(
                                 fontSize: 24, fontWeight: FontWeight.bold),
                             textAlign: TextAlign.center,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           // Replace the TextField with an image picker button
                           if (_uploadingImage)
-                            CircularProgressIndicator() // Show progress indicator
+                            const CircularProgressIndicator() // Show progress indicator
                           else
                             GestureDetector(
                               onTap: _addProperty,
@@ -103,13 +103,13 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                                 backgroundImage: imageUrl != null
                                     ? NetworkImage(
                                         imageUrl!) // Display selected image
-                                    : AssetImage(
+                                    : const AssetImage(
                                         'assets/images/green-person.png'), // Default icon
                                 radius: 50,
                               ),
                             ),
-                            Text(' Please Press the above icon to insert your profile picture'),
-                            SizedBox(
+                            const Text(' Please Press the above icon to insert your profile picture'),
+                            const SizedBox(
                               height: 20,
                             ),
                           _buildTextField(nameController, 'Full Name', 1),
@@ -119,7 +119,7 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     ElevatedButton(
                       onPressed:_add,
                       style: ElevatedButton.styleFrom(
@@ -128,7 +128,7 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Register',
                         style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
@@ -153,7 +153,7 @@ class _RegisterAsAgentState extends State<RegisterAsAgent> {
                   hintText: hintText,
                   border: InputBorder.none,
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 ))));
   }
 }
