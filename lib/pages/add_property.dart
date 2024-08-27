@@ -66,7 +66,7 @@ class _AddPropertyState extends State<AddProperty> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Add Property',
             style: TextStyle(color: Colors.white),
           ),
@@ -79,14 +79,14 @@ class _AddPropertyState extends State<AddProperty> {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    margin: EdgeInsets.only(top: 20),
+                    margin: const EdgeInsets.only(top: 20),
                     decoration: BoxDecoration(
                       border: Border.all(),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'Add Your New Property',
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
@@ -94,10 +94,10 @@ class _AddPropertyState extends State<AddProperty> {
                         ),
                         // Replace the TextField with an image picker button
                         if (_uploadingImage)
-                          CircularProgressIndicator() // Show progress indicator
+                          const CircularProgressIndicator() // Show progress indicator
                         else
                           IconButton(
-                            icon: Icon(Icons.photo_camera),
+                            icon: const Icon(Icons.photo_camera),
                             onPressed: _addProperty,
                           ),
                         _buildTextField(nameController, 'Property Name'),
@@ -106,7 +106,7 @@ class _AddPropertyState extends State<AddProperty> {
                       ],
                     ),
                   ),
-                  SizedBox(height: 30),
+                  const SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: _add,
                     style: ElevatedButton.styleFrom(
@@ -115,7 +115,7 @@ class _AddPropertyState extends State<AddProperty> {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child: Text(
+                    child: const Text(
                       'Add Property',
                       style: TextStyle(fontSize: 18, color: Colors.white),
                     ),
@@ -137,7 +137,7 @@ class _AddPropertyState extends State<AddProperty> {
                   hintText: hintText,
                   border: InputBorder.none,
                   contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                 ))));
   }
 }
