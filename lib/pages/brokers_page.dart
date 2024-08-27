@@ -37,7 +37,7 @@ class _BrokersPageState extends State<BrokersPage> {
   }
 
   _buildHeader() {
-    return Row(
+    return const Row(
       children: [
         Expanded(
           child: CustomTextBox(
@@ -45,13 +45,13 @@ class _BrokersPageState extends State<BrokersPage> {
             prefix: Icon(Icons.search, color: Colors.grey),
           ),
         ),
-        const SizedBox(
+        SizedBox(
           width: 10,
         ),
         IconBox(
-          child: Icon(Icons.filter_list_rounded, color: Colors.white),
           bgColor: Colors.green,
           radius: 10,
+          child: Icon(Icons.filter_list_rounded, color: Colors.white),
         )
       ],
     );
@@ -109,7 +109,7 @@ class _BrokersPageState extends State<BrokersPage> {
 
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      padding: EdgeInsets.only(bottom: 5, left: 15),
+      padding: const EdgeInsets.only(bottom: 5, left: 15),
       child: Row(children: lists),
     );
   }
