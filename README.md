@@ -1,4 +1,3 @@
-
 # BetLink
 
 The **Bet Link** is a Flutter application designed to connect buyers and sellers of properties (houses, shops, and buildings). Sellers can register as agents or brokers and post their properties for interested buyers to discover.
