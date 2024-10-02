@@ -1,17 +1,19 @@
+import 'package:betlink/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../constants.dart';
 import '../Components/roundedbutton.dart';
 import 'package:betlink/pages/root.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class RegistrationScreen extends ConsumerStatefulWidget{
   static String id = 'registrationScreen';
 
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  ConsumerState createState() => _RegistrationScreenState();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _RegistrationScreenState extends ConsumerState<RegistrationScreen> {
   final _auth = FirebaseAuth.instance;
   late TextEditingController _emailController;
   late TextEditingController _passwordController;
@@ -58,7 +60,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
               SizedBox(height: 10.0),
               Text(
-                'Log in to BetLink',
+                'Signup to BetLink',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
@@ -103,13 +105,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         email: _emailController.text,
                         password: _passwordController.text,
                       );
+                      await ref.read(UserProvider.notifier).signup(_emailController.text);
                       if (newUser != null) {
                         _emailController.clear();
                         _passwordController.clear();
                         Navigator.pushNamed(context, RootApp.id);
                       }
                     } catch (e) {
-                      print('Error during registration: $e');
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
                     }
                   }
                 },
