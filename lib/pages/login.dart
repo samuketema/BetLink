@@ -1,17 +1,20 @@
+import 'package:betlink/pages/home.dart';
+import 'package:betlink/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../constants.dart';
 import '../Components/roundedbutton.dart';
 import 'package:betlink/pages/root.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   static String id = 'loginScreen';
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  ConsumerState createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>(); // Add a form key
   late TextEditingController _emailController;
@@ -41,7 +44,15 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Padding(
+      body: StreamBuilder<User?>(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          
+          if (snapshot.hasData) {
+            ref.read(UserProvider.notifier).login(snapshot.data!.email!);
+            return RootApp();
+          }
+          return Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Form(
           key: _formKey, // Associate the form key with the form
@@ -116,7 +127,11 @@ class _LoginScreenState extends State<LoginScreen> {
             ],
           ),
         ),
+      );
+        },
       ),
+      
+       
     );
   }
 }
