@@ -104,7 +104,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       if (user != null) {
                         _emailController.clear();
                         _passwordController.clear();
-                        print('User logged in: ${user.user?.email}');
                         Navigator.pushNamed(context, RootApp.id);
                       }
                     } catch (e) {

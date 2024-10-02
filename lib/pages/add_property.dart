@@ -50,10 +50,10 @@ class _AddPropertyState extends State<AddProperty> {
 
   void _add() async {
     await _firestore.collection('recents').add({
-      'image': imageUrl,
-      'name': nameController.text,
-      'price': priceController.text,
-      'location': locationController.text,
+      'image': imageUrl ?? "https://www.crestolympiads.com/assets/images/science/house.png",
+      'name': nameController.text ?? 'Double Villa',
+      'price': priceController.text ?? "2000000",
+      'location': locationController.text ?? 'Addis Ababa',
       'is_favorited': false,
     });
 
