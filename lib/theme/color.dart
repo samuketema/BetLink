@@ -33,6 +33,5 @@ class AppColor {
     red,
     blue,
     pink,
-    yellow,
   ];
 }
